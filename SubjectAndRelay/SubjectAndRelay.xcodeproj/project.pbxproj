@@ -28,6 +28,8 @@
 		EE32E78227D32D3A00493624 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE32E78527D32D3A00493624 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE32E78727D32D3A00493624 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEDBA71127D335A500E006F0 /* Subject.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Subject.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EEDBA71227D33F1300E006F0 /* Relay.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Relay.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +58,6 @@
 				6E61994AC52A0BE56B781FCD /* Pods-SubjectAndRelay.debug.xcconfig */,
 				01E7DFC3E0283703FEBFA01B /* Pods-SubjectAndRelay.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -88,6 +89,8 @@
 				EE32E78227D32D3A00493624 /* Assets.xcassets */,
 				EE32E78427D32D3A00493624 /* LaunchScreen.storyboard */,
 				EE32E78727D32D3A00493624 /* Info.plist */,
+				EEDBA71127D335A500E006F0 /* Subject.playground */,
+				EEDBA71227D33F1300E006F0 /* Relay.playground */,
 			);
 			path = SubjectAndRelay;
 			sourceTree = "<group>";
