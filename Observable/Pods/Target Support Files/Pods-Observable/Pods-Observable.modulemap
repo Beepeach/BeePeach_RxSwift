@@ -1,0 +1,6 @@
+module Pods_Observable {
+  umbrella header "Pods-Observable-umbrella.h"
+
+  export *
+  module * { export * }
+}
