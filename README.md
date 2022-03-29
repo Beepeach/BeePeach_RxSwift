@@ -11,4 +11,5 @@
   + [Observable](https://beepeach.tistory.com/660)
   + [Subscribe](https://beepeach.tistory.com/679)
   + [Disposable](https://beepeach.tistory.com/680)
+  + [Observable Factory](https://beepeach.tistory.com/684)
 <br/>
