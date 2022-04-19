@@ -15,6 +15,7 @@
 		EE74EF6D27EB642600CF063F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE74EF6C27EB642600CF063F /* Assets.xcassets */; };
 		EE74EF7027EB642600CF063F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE74EF6E27EB642600CF063F /* LaunchScreen.storyboard */; };
 		EEC7CDD8280E4EC200159D43 /* FactoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7CDD7280E4EC200159D43 /* FactoryViewController.swift */; };
+		EEC7CDDA280E5E3300159D43 /* DoAndDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7CDD9280E5E3300159D43 /* DoAndDebugViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		EE74EF6F27EB642600CF063F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE74EF7127EB642600CF063F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEC7CDD7280E4EC200159D43 /* FactoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryViewController.swift; sourceTree = "<group>"; };
+		EEC7CDD9280E5E3300159D43 /* DoAndDebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoAndDebugViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +64,9 @@
 			children = (
 				EE74EF6327EB642600CF063F /* AppDelegate.swift */,
 				EE74EF6527EB642600CF063F /* SceneDelegate.swift */,
-				EE74EF6727EB642600CF063F /* TraitViewController.swift */,
 				EEC7CDD7280E4EC200159D43 /* FactoryViewController.swift */,
+				EE74EF6727EB642600CF063F /* TraitViewController.swift */,
+				EEC7CDD9280E5E3300159D43 /* DoAndDebugViewController.swift */,
 				EE74EF6927EB642600CF063F /* Main.storyboard */,
 				EE74EF6C27EB642600CF063F /* Assets.xcassets */,
 				EE74EF6E27EB642600CF063F /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE74EF6827EB642600CF063F /* TraitViewController.swift in Sources */,
+				EEC7CDDA280E5E3300159D43 /* DoAndDebugViewController.swift in Sources */,
 				EEC7CDD8280E4EC200159D43 /* FactoryViewController.swift in Sources */,
 				EE74EF6427EB642600CF063F /* AppDelegate.swift in Sources */,
 				EE74EF6627EB642600CF063F /* SceneDelegate.swift in Sources */,
