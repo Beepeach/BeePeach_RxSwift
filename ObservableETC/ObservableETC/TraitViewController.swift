@@ -27,7 +27,7 @@ class TraitViewController: UIViewController {
         Single<Int>.create { single in
             single(.success(2))
             
-            // 이건 못받습니다.
+            // 이건 못받습니다. why? success가 됐기때문에
             single(.success(3))
             
             return Disposables.create()
@@ -37,53 +37,87 @@ class TraitViewController: UIViewController {
         
         
         // 예시
-        enum FileReadError: Error {
-            case fileNotFound
-            case unreadable
-            case encodingFailed
+        enum NumbersError: Error {
+            case oddNumber
+            case over(number: Int)
         }
         
-        func loadText(from name: String) -> Single<String> {
-            return Single.create { single in
-                let disposable = Disposables.create()
+        func validateNumber(limit: Int) -> Single<Int> {
+            return Single<Int>.create { singleObserver in
+                let disposable: Disposable = Disposables.create()
+                let randomNum: Int = Int.random(in: 1...(limit * 2))
                 
-                guard let path = Bundle.main.path(forResource: name, ofType: "txt") else {
-                    single(.failure(FileReadError.fileNotFound))
+                guard !randomNum.isMultiple(of: 2) else {
+                    singleObserver(.failure(NumbersError.oddNumber))
                     return disposable
                 }
-                
-                guard let data = FileManager.default.contents(atPath: path) else {
-                    single(.failure(FileReadError.unreadable))
+                guard randomNum > limit else {
+                    singleObserver(.failure(NumbersError.over(number: limit)))
                     return disposable
                 }
+                singleObserver(.success(randomNum))
                 
-                guard let contents = String(data: data, encoding: .utf8) else {
-                    single(.failure(FileReadError.encodingFailed))
-                    return disposable
-                }
-                
-                single(.success(contents))
                 return disposable
             }
         }
         
-        loadText(from: "Copyright").subscribe {
-            switch $0 {
-            case .success(let string):
-                print(string)
-            case .failure(let error):
-                print(error)
-            }
-        }.disposed(by: disposeBag)
+        validateNumber(limit: 100)
+            .debug()
+            .subscribe { print($0) }
+            .disposed(by: disposeBag)
         
+        
+        // FileLoad 예시
+        /*
+         
+         enum FileReadError: Error {
+         case fileNotFound
+         case unreadable
+         case encodingFailed
+         }
+         
+         func loadText(from name: String) -> Single<String> {
+         return Single.create { single in
+         let disposable = Disposables.create()
+         
+         guard let path = Bundle.main.path(forResource: name, ofType: "txt") else {
+         single(.failure(FileReadError.fileNotFound))
+         return disposable
+         }
+         
+         guard let data = FileManager.default.contents(atPath: path) else {
+         single(.failure(FileReadError.unreadable))
+         return disposable
+         }
+         
+         guard let contents = String(data: data, encoding: .utf8) else {
+         single(.failure(FileReadError.encodingFailed))
+         return disposable
+         }
+         
+         single(.success(contents))
+         return disposable
+         }
+         }
+         
+         
+         loadText(from: "Copyright").subscribe {
+         switch $0 {
+         case .success(let string):
+         print(string)
+         case .failure(let error):
+         print(error)
+         }
+         }.disposed(by: disposeBag)
+         */
         
         
         // MARK: - Naver
         
-//        Observable<Int>.never().subscribe(onDisposed:  {
-//            print("Disposed")
-//        }).disposed(by: disposeBag)
-     
+        //        Observable<Int>.never().subscribe(onDisposed:  {
+        //            print("Disposed")
+        //        }).disposed(by: disposeBag)
+        
         Observable<Int>.never().do(onNext: {
             print("onNext:", $0)
         }, afterNext: {
