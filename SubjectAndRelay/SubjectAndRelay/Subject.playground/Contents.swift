@@ -77,7 +77,14 @@ replay.onCompleted()
 // Completed, Error 이후에도 buffer에 저장된 next가 전달됩니다.
 replay.subscribe { print("Replay4", $0) }.disposed(by: disposeBag)
 
+// 만약 dispose 시키면 관련된 데이터가 메모리에서 해제되므로 buffer에 저장된 이벤트가 전달되지 않고
+// disposed됐다는 에러가 발생합니다.
+// 근데 이 방법은 잘 사용하지 않습니다.
+replay.dispose()
+replay.subscribe { print("Replay5", $0) }.disposed(by: disposeBag)
 
+// disposed로 해제시키면 VC나 VM이 해제될때 해제되므로 disposed됐다는 에러가 나지 않습니다.
+//replay.disposed(by: disposeBag)
 
 // MARK: - Async
 // completed가 전달돼야 최근 next를 하나 전달합니다.
