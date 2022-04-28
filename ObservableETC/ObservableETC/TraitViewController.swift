@@ -24,10 +24,12 @@ class TraitViewController: UIViewController {
         // failure = error 입니다.
         // next + completed이기때문에 한개만 방출하고 종료됩니다.
         // 주로 Download,file읽기에서 사용됩니다.
+        
         Single<Int>.create { single in
             single(.success(2))
             
-            // 이건 못받습니다. why? success가 됐기때문에
+            // 이후의 코드는 전달되지 않습니다.
+            // success는 completed를 호출한것과 같기 때문입니다.
             single(.success(3))
             
             return Disposables.create()
@@ -110,6 +112,52 @@ class TraitViewController: UIViewController {
          }
          }.disposed(by: disposeBag)
          */
+        
+        
+        
+        // MARK: - Completable
+        // completd, error(error) 이벤트를 방출합니다.
+        // next 이벤트가 없어서 데이터를 담아 보낼수 없습니다.
+        // 주로 File 읽기와 같은 성공, 실패여부만을 확인할때 사용합니다.
+        // Single과의 차이는 Single은 성공했다면 데이터를 담아 보낼 수 있고 Completable은 데이터를 담지 않고 성공, 실패만 따집니다.
+        // 그리고 ResultType을 사용하지 않았습니다.
+        
+        Completable.create { observer in
+            // 성공이라면 completed
+            observer(.completed)
+            // 실패하면 error를 담아서
+            observer(.error(MyError.error))
+            
+            return Disposables.create()
+        }.subscribe(onCompleted: {
+            print("Completable >>> complete")
+        }).disposed(by: disposeBag)
+        
+        
+        
+        
+        // MARK: - Maybe
+        // Maybe는 Single과 Completable의 결합입니다.
+        // success(value), completed, error(Error) 이벤트를 방출합니다.
+        
+        Maybe<Int>.create { observer in
+            observer(.success(2))
+            
+            // success이후에 전달되는 이벤트는 전달되지 않습니다.
+            // single과 같은 이유입니다.
+            
+            // observer(.completed)
+            // observer(.error(MyError.error))
+            
+            return Disposables.create()
+        }.subscribe {
+            print("Maybe >>>", $0)
+        }.disposed(by: disposeBag)
     }
 }
 
+
+
+enum MyError: Error {
+    case error
+}
