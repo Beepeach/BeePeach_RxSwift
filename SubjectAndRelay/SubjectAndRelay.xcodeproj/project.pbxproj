@@ -15,6 +15,7 @@
 		EE72A72E281BE15F008777D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE72A72C281BE15F008777D6 /* LaunchScreen.storyboard */; };
 		EE72A737281BE181008777D6 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EE72A736281BE181008777D6 /* RxCocoa */; };
 		EE72A739281BE181008777D6 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EE72A738281BE181008777D6 /* RxSwift */; };
+		EE72A73B281BED23008777D6 /* RelayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE72A73A281BED23008777D6 /* RelayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EE72A72A281BE15F008777D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE72A72D281BE15F008777D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE72A72F281BE15F008777D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE72A73A281BED23008777D6 /* RelayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				EE72A721281BE15E008777D6 /* AppDelegate.swift */,
 				EE72A723281BE15E008777D6 /* SceneDelegate.swift */,
 				EE72A725281BE15E008777D6 /* SubjectViewController.swift */,
+				EE72A73A281BED23008777D6 /* RelayViewController.swift */,
 				EE72A727281BE15E008777D6 /* Main.storyboard */,
 				EE72A72A281BE15F008777D6 /* Assets.xcassets */,
 				EE72A72C281BE15F008777D6 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE72A73B281BED23008777D6 /* RelayViewController.swift in Sources */,
 				EE72A726281BE15E008777D6 /* SubjectViewController.swift in Sources */,
 				EE72A722281BE15E008777D6 /* AppDelegate.swift in Sources */,
 				EE72A724281BE15E008777D6 /* SceneDelegate.swift in Sources */,
