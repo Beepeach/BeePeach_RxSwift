@@ -127,6 +127,13 @@ class SubjectViewController: UIViewController {
             .disposed(by: disposeBag)
         
         
+        // 만약 dispose 시키고 나서 구독을 추가하면 에러가 전달됩니다.
+        replaySubject.dispose()
+        replaySubject
+            .subscribe {
+                print("ReplaySubject5 >>>", $0)
+            }
+            .disposed(by: disposeBag)
         
         
         // MARK: - Async Subject
@@ -150,6 +157,7 @@ class SubjectViewController: UIViewController {
         asyncSubject.onCompleted()
         
         // Error가 전달되면 next이벤트를 전달하지 않습니다. Completed되어야만 next를 전달합니다.
+        asyncSubject.onError(CustomError.error)
     }
 }
 
